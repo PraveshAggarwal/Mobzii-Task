@@ -2,6 +2,7 @@ import Task1 from "./components/Task1";
 import Counter from "./components/Counter";
 import SearchFilter from "./components/SearchFilter";
 import DataGridTask from "./components/DataGridTask";
+import TaskBoard from "./components/TaskBoard";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Counter />
           <SearchFilter />
           <DataGridTask />
+          <TaskBoard />
         </div>
       </div>
     </div>
