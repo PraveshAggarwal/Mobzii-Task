@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "customer": "Brannon Weimann",
+    "last_seen": "2020-08-08",
+    "orders": 2,
+    "total_spent": 295.31,
+    "latest_purchase": "2019-11-27 13:12:25",
+    "news": true,
+    "segments": "Regular"
+  },
+  {
+    "id": 2,
+    "customer": "Anna Bruen",
+    "last_seen": "2020-08-08",
+    "orders": 3,
+    "total_spent": 647.91,
+    "latest_purchase": "2020-08-07 07:48:18",
+    "news": false,
+    "segments": "Regular"
+  },
+  {
+    "id": 3,
+    "customer": "Gudrun Tromp",
+    "last_seen": "2020-08-08",
+    "orders": 5,
+    "total_spent": 1250.75,
+    "latest_purchase": "2020-07-15 14:22:10",
+    "news": false,
+    "segments": "VIP"
+  },
+  {
+    "id": 4,
+    "customer": "Florencio Roob",
+    "last_seen": "2020-08-08",
+    "orders": 1,
+    "total_spent": 149.99,
+    "latest_purchase": "2020-06-20 09:15:33",
+    "news": true,
+    "segments": "New"
+  },
+  {
+    "id": 5,
+    "customer": "Maddison Torp",
+    "last_seen": "2020-08-09",
+    "orders": 8,
+    "total_spent": 2340.5,
+    "latest_purchase": "2020-08-08 16:45:22",
+    "news": true,
+    "segments": "Premium"
+  },
+  {
+    "id": 6,
+    "customer": "Rashawn Beer",
+    "last_seen": "2020-09-09",
+    "orders": 3,
+    "total_spent": 693.64,
+    "latest_purchase": "2020-05-19 10:03:18",
+    "news": true,
+    "segments": "Regular"
+  },
+  {
+    "id": 7,
+    "customer": "Beth Hill",
+    "last_seen": "2020-08-08",
+    "orders": 2,
+    "total_spent": 425.8,
+    "latest_purchase": "2020-07-28 11:30:45",
+    "news": false,
+    "segments": "Regular"
+  },
+  {
+    "id": 8,
+    "customer": "Brandy Hoeger",
+    "last_seen": "2020-08-08",
+    "orders": 12,
+    "total_spent": 3875.25,
+    "latest_purchase": "2020-08-05 13:20:15",
+    "news": true,
+    "segments": "VIP"
+  },
+  {
+    "id": 9,
+    "customer": "Rey Schuster",
+    "last_seen": "2020-08-08",
+    "orders": 4,
+    "total_spent": 890.4,
+    "latest_purchase": "2020-07-10 08:55:30",
+    "news": false,
+    "segments": "Premium"
+  },
+  {
+    "id": 10,
+    "customer": "Jakob Armstrong",
+    "last_seen": "2020-08-10",
+    "orders": 6,
+    "total_spent": 1567.9,
+    "latest_purchase": "2020-08-09 17:12:08",
+    "news": true,
+    "segments": "Premium"
+  }
+]
