@@ -5,9 +5,13 @@ export default function Task1() {
   const [isVisible, setIsVisible] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
   const [name, setName] = useState("Mobzii");
-  const [children, setChildren] = useState([0]);
+
   const [a, setA] = useState(10);
   const [b, setB] = useState(20);
+
+  // ✅ Task: Dynamically add child components (no default child)
+  const [childText, setChildText] = useState("");
+  const [children, setChildren] = useState([]);
 
   const peopleRecords = useMemo(
     () => [
@@ -20,6 +24,22 @@ export default function Task1() {
   );
 
   const sum = Number(a || 0) + Number(b || 0);
+
+  const addChild = () => {
+    const text = childText.trim();
+    if (!text) return;
+
+    setChildren((arr) => [...arr, { id: Date.now(), text }]);
+    setChildText("");
+  };
+
+  const removeChild = (id) => {
+    setChildren((arr) => arr.filter((c) => c.id !== id));
+  };
+
+  const onChildKeyDown = (e) => {
+    if (e.key === "Enter") addChild();
+  };
 
   return (
     <Section
@@ -126,40 +146,61 @@ export default function Task1() {
           </p>
         </div>
 
+        {/* ✅ Updated: better fit button design + no default child */}
         <div className="rounded-xl border border-slate-200 bg-white p-4">
-          <div className="flex items-center justify-between">
-            <div className="text-sm font-semibold text-slate-800">
-              Dynamically add child components
-            </div>
+          <div className="text-sm font-semibold text-slate-800">
+            Dynamically add child components
+          </div>
+
+          <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <input
+              className="w-full flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+              value={childText}
+              onChange={(e) => setChildText(e.target.value)}
+              onKeyDown={onChildKeyDown}
+              placeholder="Enter child item"
+            />
+
             <button
-              className="rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-700"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-200 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
               type="button"
-              onClick={() => setChildren((arr) => [...arr, arr.length])}
+              onClick={addChild}
+              disabled={!childText.trim()}
             >
               Add Child
             </button>
           </div>
 
-          <div className="mt-3 space-y-2">
-            {children.map((_, idx) => (
-              <div
-                key={idx}
-                className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-3"
-              >
-                <div className="text-sm font-semibold text-slate-800">
-                  Child Component #{idx + 1}
-                </div>
-                <button
-                  className="rounded-lg bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-rose-700"
-                  type="button"
-                  onClick={() =>
-                    setChildren((arr) => arr.filter((__, i) => i !== idx))
-                  }
-                >
-                  Remove
-                </button>
+          <div className="mt-4 space-y-2">
+            {children.length === 0 ? (
+              <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-3 text-sm text-slate-600">
+                No child items yet.
               </div>
-            ))}
+            ) : (
+              children.map((c, idx) => (
+                <div
+                  key={c.id}
+                  className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
+                >
+                  <div className="min-w-0">
+                    <div className="text-xs font-semibold text-slate-500">
+                      Child #{idx + 1}
+                    </div>
+                    <div className="truncate text-sm font-medium text-slate-800">
+                      {c.text}
+                    </div>
+                  </div>
+
+                  <button
+                    className="shrink-0 rounded-lg bg-rose-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-rose-700"
+                    type="button"
+                    onClick={() => removeChild(c.id)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
