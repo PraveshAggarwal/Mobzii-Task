@@ -85,7 +85,7 @@ function DroppableColumn({ columnId, title, taskIds, tasksById, minHeight }) {
       <div className="mt-3" style={{ minHeight }}>
         <SortableContext items={taskIds} strategy={verticalListSortingStrategy}>
           {taskIds.length === 0 ? (
-            <div className="min-h-[140px] rounded-xl bg-transparent" />
+            <div className="min-h-35 rounded-xl bg-transparent" />
           ) : (
             <div className="flex flex-col gap-3">
               {taskIds.map((taskId) => (
